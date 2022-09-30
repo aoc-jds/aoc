@@ -1,0 +1,4 @@
+(library
+ (libraries fmt)
+ (flags (-w -32))
+ (name aoc))

@@ -19,7 +19,7 @@
  (name aoc)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml dune fmt)
+ (depends ocaml dune fmt alcotest)
  (tags
   (topics "to describe" your project)))
 

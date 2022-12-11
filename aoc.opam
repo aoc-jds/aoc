@@ -12,6 +12,8 @@ bug-reports: "https://github.com/username/reponame/issues"
 depends: [
   "ocaml"
   "dune" {>= "2.9"}
+  "fmt"
+  "alcotest"
   "odoc" {with-doc}
 ]
 build: [

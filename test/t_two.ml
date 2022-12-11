@@ -27,4 +27,7 @@ let t_total () =
     10718 (Part_one.exec inputs)
       
 (** Part Two - The tests *)
-  
+let t_part_two () =
+  let inputs = get_inputs in 
+  Alcotest.(check codom_testable) "Calculate site expected score" 
+    14652 (Part_two.exec inputs)

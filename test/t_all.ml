@@ -5,9 +5,7 @@ let () =
   run "Adevnt of Code" [
     "one", [
       test_case "Empty list" `Quick T_one.t_empty;
-      test_case "List with single item" `Quick T_one.t_single;
-      test_case "List with multiple items" `Quick T_one.t_multiple;
-      test_case "List from website" `Quick T_one.t_example;
+      test_case "Sample log" `Quick T_one.t_single_log;
     ];
     "two", [
       test_case "Empty list" `Quick T_two.t_empty;

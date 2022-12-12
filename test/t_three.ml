@@ -34,6 +34,6 @@ let t_sample () =
 
 let t_total () =
   let inputs = get_inputs in
-  Alcotest.(check codom_testable) "Calculate expected value for challenge" 0 
+  Alcotest.(check codom_testable) "Calculate expected value for challenge" 7821 
     (exec inputs)
   

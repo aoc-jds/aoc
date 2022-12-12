@@ -16,6 +16,8 @@ let () =
       test_case "Site input list - part two" `Quick T_two.t_part_two;
     ];
     "three", [
+      test_case "Priority assignment function" `Quick T_three.t_get_priority;
       test_case "Empty List" `Quick T_three.t_empty;
+      test_case "Sample List from site" `Quick T_three.t_sample;
     ];
   ]

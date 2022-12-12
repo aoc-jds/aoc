@@ -14,6 +14,8 @@ let () =
       test_case "Single entry list" `Quick T_two.t_single_entry;
       test_case "Site input list" `Quick T_two.t_total;
       test_case "Site input list - part two" `Quick T_two.t_part_two;
-      
+    ];
+    "three", [
+      test_case "Empty List" `Quick T_three.t_empty;
     ];
   ]

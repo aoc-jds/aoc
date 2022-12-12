@@ -14,15 +14,9 @@ module Part_one = struct
   let get_priority item =
     let item_code = Char.code item in 
     if item_code >= lower_a_code && item_code <= lower_z_code
-    then 
-      let ret = item_code - lower_a_offset in
-      (* Printf.printf "'%c': priority = %d\n" item ret; *)
-      ret
+    then item_code - lower_a_offset
     else if item_code >= upper_a_code && item_code <= upper_z_code
-    then
-      let ret = item_code - upper_a_offset in
-      (* Printf.printf "'%c': priority = %d\n" item ret; *)
-      ret
+    then item_code - upper_a_offset
     else 0
 
   (** Utility function *)
@@ -66,5 +60,16 @@ module Part_two = struct
     | i1 :: i2 :: i3 :: is -> 
       [i1; i2; i3] :: (partition ~groups:groups is)
     | _ -> groups
+
+
+  (** Determine group priority *)
+  let get_group_priority group : int = 
+    0
+
+
+  (** Determine priority of badge rearrangement *)
+  let exec (sacks : string list) : int =
+    let _ = partition sacks in
+    0
 end
 

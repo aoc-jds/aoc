@@ -24,6 +24,6 @@ let () =
       test_case "Partition - two sack" `Quick T_three.t_partition_two;
       test_case "Partition - three sack" `Quick T_three.t_partition_three;
       test_case "Partition - four sack" `Quick T_three.t_partition_four;
-      test_case "Partition - four sack" `Quick T_three.t_partition_six;
+      test_case "Partition - six sack" `Quick T_three.t_partition_six;
     ];
   ]

@@ -1,4 +1,4 @@
-open Lib.Three.Part_two
+open Lib.Three.Part_one
 
 (** Framework utilties for part one exec *)
 let pp_codom ppf = Fmt.pf ppf "%d"
@@ -36,6 +36,11 @@ let t_total () =
   Alcotest.(check codom_testable) "Calculate expected value for challenge" 7821 
     (exec inputs)
 
+
+
+
+
+open Lib.Three.Part_two
 
 (** Framework utilties for part two exec *)
 let pp_codom_partition = pp_group_t

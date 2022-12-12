@@ -1,9 +1,8 @@
-open Lib.Three
+open Lib.Three.Part_two
 
+(** Framework utilties for part one exec *)
 let pp_codom ppf = Fmt.pf ppf "%d"
-
 let eq_codom x y = (x=y)
-
 let codom_testable = Alcotest.testable pp_codom eq_codom
 
 (** Test utiltities *)
@@ -36,4 +35,78 @@ let t_total () =
   let inputs = get_inputs in
   Alcotest.(check codom_testable) "Calculate expected value for challenge" 7821 
     (exec inputs)
-  
+
+
+(** Framework utilties for part two exec *)
+let pp_codom_partition = pp_group_t
+let eq_codom_partition = equal_group_t
+let partition_codom_testable = Alcotest.testable pp_codom_partition eq_codom_partition
+
+
+let t_partition_empty () =
+  Alcotest.(check partition_codom_testable) "Sample list evals to expect value" [] 
+    (partition [])
+
+let t_partition_one () =
+  Alcotest.(check partition_codom_testable) "Sample list evals to expect value" [] 
+    (partition [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+    ])
+
+let t_partition_two () =
+  Alcotest.(check partition_codom_testable) "Sample list evals to expect value" [] 
+    (partition [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+    ])
+
+let t_partition_three () =
+  Alcotest.(check partition_codom_testable) "Sample list evals to expect value" [
+      [
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+      ]
+    ] 
+    (partition [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+    ])
+
+let t_partition_four () =
+  Alcotest.(check partition_codom_testable) "Sample list evals to expect value" [
+      [
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+      ]
+    ] 
+    (partition [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+    ])
+
+let t_partition_six () =
+  Alcotest.(check partition_codom_testable) "Sample list evals to expect value" [
+      [
+        "vJrwpWtwJgWrhcsFMMfFFhFp";
+        "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL";
+        "PmmdzqPrVvPwwTWBwg";
+      ];
+      [
+        "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn";
+        "ttgJtRGJQctTZtZT";
+        "CrZsJsPPZsGzwwsLwLmpwMDw";
+      ]
+    ]
+    (partition [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL";
+      "PmmdzqPrVvPwwTWBwg";
+      "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn";
+      "ttgJtRGJQctTZtZT";
+      "CrZsJsPPZsGzwwsLwLmpwMDw";
+    ])

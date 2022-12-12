@@ -20,5 +20,10 @@ let () =
       test_case "Empty List" `Quick T_three.t_empty;
       test_case "Sample List from site" `Quick T_three.t_sample;
       test_case "Site input list" `Quick T_three.t_total;
+      test_case "Partition - one sack" `Quick T_three.t_partition_one;
+      test_case "Partition - two sack" `Quick T_three.t_partition_two;
+      test_case "Partition - three sack" `Quick T_three.t_partition_three;
+      test_case "Partition - four sack" `Quick T_three.t_partition_four;
+      test_case "Partition - four sack" `Quick T_three.t_partition_six;
     ];
   ]

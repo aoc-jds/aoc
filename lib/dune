@@ -1,5 +1,5 @@
 (library
  (libraries fmt)
  (flags (-w -32))
- (preprocess (pps ppx_deriving.show))
+ (preprocess (pps ppx_deriving.show ppx_deriving.eq))
  (name lib))

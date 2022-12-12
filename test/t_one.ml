@@ -1,4 +1,4 @@
-open Lib.One
+open Lib.One.Part_one
 
 (* The tests *)
 let t_empty () =
@@ -25,3 +25,8 @@ let t_single_log () =
 
 let t_total () =
   Alcotest.(check int) "Site puzzle input" 64929 (exec One_input.site_input)
+
+open Lib.One.Part_two
+
+let t_top_three () = 
+  Alcotest.(check int) "Site puzzle input" 0 (exec One_input.site_input)

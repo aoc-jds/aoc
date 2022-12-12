@@ -7,6 +7,7 @@ let () =
       test_case "Empty list" `Quick T_one.t_empty;
       test_case "Sample log" `Quick T_one.t_single_log;
       test_case "Site input list" `Quick T_one.t_total;
+      test_case "Site input list - part two" `Quick T_one.t_top_three;
     ];
     "two", [
       test_case "Empty list" `Quick T_two.t_empty;

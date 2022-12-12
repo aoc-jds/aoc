@@ -6,7 +6,7 @@ let t_empty () =
 ;;
 
 let t_single_log () =
-  Alcotest.(check int) "Empty evals to empty" 0 (exec "
+  Alcotest.(check int) "Sample evals to expected value" 24000 (exec "
 1000
 2000
 3000
@@ -21,4 +21,7 @@ let t_single_log () =
 9000
 
 10000")
-  
+;;
+
+let t_total () =
+  Alcotest.(check int) "Site puzzle input" 64929 (exec One_input.site_input)

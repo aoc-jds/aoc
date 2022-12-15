@@ -141,3 +141,9 @@ let t_group_priorities () =
       "ttgJtRGJQctTZtZT";
       "CrZsJsPPZsGzwwsLwLmpwMDw";
     ])
+
+let t_total_part_two () =
+  let inputs = get_inputs in
+  Alcotest.(check codom_testable) "Calculate expected value for challenge" 2752 
+    (exec inputs)
+    

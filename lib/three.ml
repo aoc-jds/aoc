@@ -83,7 +83,6 @@ module Part_two = struct
         (List.nth group 2))
       (List.nth group 1))
     (List.nth group 0);
-    Printf.printf "Comon item (1,2,3): '%s'\n" !common_items;
     if (String.length !common_items) = 1 then get_priority !common_items.[0] else 0
 
   (** Determine priority of badge rearrangement *)

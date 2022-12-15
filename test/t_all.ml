@@ -28,5 +28,10 @@ let () =
       test_case "Group priority one" `Quick T_three.t_group_priority_one;
       test_case "Group priority two" `Quick T_three.t_group_priority_two;
       test_case "Group priorities" `Quick T_three.t_group_priorities;
+      test_case "Site input list part two" `Quick T_three.t_total_part_two;
     ];
+    "four", [
+      test_case "Empty list" `Quick T_four.t_empty;
+      test_case "Sample list" `Quick T_four.t_sample;
+    ]
   ]

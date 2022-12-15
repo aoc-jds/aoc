@@ -43,9 +43,7 @@ let t_total () =
 open Lib.Three.Part_two
 
 (** Framework utilties for part two exec *)
-let pp_codom_partition = pp_group_t
-let eq_codom_partition = equal_group_t
-let partition_codom_testable = Alcotest.testable pp_codom_partition eq_codom_partition
+let partition_codom_testable = Alcotest.testable pp_group_t equal_group_t
 
 
 let t_partition_empty () =
@@ -108,6 +106,34 @@ let t_partition_six () =
       ]
     ]
     (partition [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL";
+      "PmmdzqPrVvPwwTWBwg";
+      "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn";
+      "ttgJtRGJQctTZtZT";
+      "CrZsJsPPZsGzwwsLwLmpwMDw";
+    ])
+;;
+let t_group_priority_one () =
+  Alcotest.(check int) "Sample list evals to expect value" 18
+    (get_group_priority [
+      "vJrwpWtwJgWrhcsFMMfFFhFp";
+      "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL";
+      "PmmdzqPrVvPwwTWBwg";
+    ])
+;;
+
+let t_group_priority_two () =
+  Alcotest.(check int) "Sample list evals to expect value" 52
+    (get_group_priority [
+      "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn";
+      "ttgJtRGJQctTZtZT";
+      "CrZsJsPPZsGzwwsLwLmpwMDw";
+    ])
+
+let t_group_priorities () =
+  Alcotest.(check codom_testable) "Sample list evals to expect value" 70
+    (exec [
       "vJrwpWtwJgWrhcsFMMfFFhFp";
       "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL";
       "PmmdzqPrVvPwwTWBwg";

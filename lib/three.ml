@@ -22,13 +22,14 @@ module Part_one = struct
   (** Utility function *)
   let explode s = List.init (String.length s) (String.get s)
 
-  (** Function to find common char between two strings and stop on first detection *)
+  (** Function to find common char between two strings *)
   let rec project_common_item compartment_two compartment_one =
     match compartment_one with
-    | i :: _ when (String.contains compartment_two i) -> i
+    | i :: _ when (String.contains compartment_two i) -> 
+      (String.make 1 i) 
     | i :: compartment_one' ->
       project_common_item compartment_two compartment_one'
-    | [] -> '\x00'
+    | [] -> ""
 
   (** Determine priority of a given sack *)
   let get_sack_priority sack =
@@ -36,8 +37,8 @@ module Part_one = struct
     let compartment_length = (sack_length / 2) in
     let compartment_one = String.sub sack 0 compartment_length in
     let compartment_two = String.sub sack compartment_length compartment_length in
-    let common_item = project_common_item compartment_two (explode compartment_one) in
-    get_priority common_item
+    let common_items = project_common_item compartment_two (explode compartment_one) in
+    if (String.length common_items) = 1 then get_priority common_items.[0] else 0
 
   (** Determine priority for a list of sacks *)
   let exec (list_of_sacks : string list) : int = 
@@ -61,15 +62,35 @@ module Part_two = struct
       [i1; i2; i3] :: (partition ~groups:groups is)
     | _ -> groups
 
+  (** Function to find common char between two strings *)
+  let rec project_common_items compartment_two compartment_one =
+    match compartment_one with
+    | i :: compartment_one' when (String.contains compartment_two i) -> 
+      (String.make 1 i) ^ project_common_item compartment_two compartment_one'
+    | i :: compartment_one' ->
+      project_common_item compartment_two compartment_one'
+    | [] -> ""
 
   (** Determine group priority *)
   let get_group_priority group : int = 
-    0
-
+    let common_items = ref "" in
+    String.iter  
+      (fun g0_c -> String.iter
+        (fun g1_c -> String.iter
+          (fun g2_c ->
+            if g0_c = g1_c && g1_c = g2_c && ((String.contains !common_items g0_c) = false)
+            then common_items := !common_items ^ (String.make 1 g0_c))
+        (List.nth group 2))
+      (List.nth group 1))
+    (List.nth group 0);
+    Printf.printf "Comon item (1,2,3): '%s'\n" !common_items;
+    if (String.length !common_items) = 1 then get_priority !common_items.[0] else 0
 
   (** Determine priority of badge rearrangement *)
   let exec (sacks : string list) : int =
-    let _ = partition sacks in
-    0
+    let groups = partition sacks in
+    let group_priorities = List.map get_group_priority groups in
+    let total_priority = List.fold_left (+) 0 group_priorities in
+    total_priority
 end
 

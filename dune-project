@@ -5,11 +5,11 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github aoc-jds/aoc))
 
-(authors "Author Name")
+(authors "Jesse Sullivan")
 
-(maintainers "Maintainer Name")
+(maintainers "Jesse Sullivan")
 
 (license LICENSE)
 
@@ -17,9 +17,9 @@
 
 (package
  (name aoc)
- (synopsis "A short synopsis")
- (description "A longer description")
- (depends ocaml dune fmt alcotest)
+ (synopsis "Advent of Code - OCaml")
+ (description "An implementation of the Advent of Code in OCaml")
+ (depends ocaml dune fmt alcotest ppx_deriving)
  (tags
   (topics "to describe" your project)))
 
